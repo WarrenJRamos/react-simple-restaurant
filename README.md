@@ -1,3 +1,8 @@
+## Warren's Version of the Food Order App
+Following Max's course, "React - The Complete Guide (incl Hooks, React Router, Redux)", I was able to create my own version of the food order app.
+Sources:
+* [Max's code](https://github.com/academind/react-complete-guide-code/tree/11-practice-food-order-app/code)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
