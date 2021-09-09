@@ -1,0 +1,9 @@
+.available-meals {
+  margin-top: 2rem;
+  position: relative;
+  z-index: 5;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 25px;
+  padding: 1.5rem 1rem 1.5rem 1rem;
+}
