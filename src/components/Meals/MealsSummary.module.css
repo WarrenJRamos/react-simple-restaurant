@@ -1,0 +1,13 @@
+.meals-summary {
+  position: relative;
+  z-index: 5;
+}
+
+.meals-summary h2 {
+  text-align: center;
+  font-style: italic;
+}
+
+.meals-summary p {
+  margin-top: 1rem;
+}
