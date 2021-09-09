@@ -8,7 +8,7 @@ import logo from '../../assets/logo.svg';
 
 import HeaderCartButton from './HeaderCartButton';
 
-const Header = () => {
+const Header = (props) => {
   return (
     <React.Fragment>
       <header className={classes.header}>
@@ -17,7 +17,7 @@ const Header = () => {
             <div className={classes['logo-wrapper']}>
               <img src={logo} className={classes.logo} />
             </div>
-            <HeaderCartButton />
+            <HeaderCartButton onClick={props.onOpenCart} />
           </nav>
         </div>
       </header>
