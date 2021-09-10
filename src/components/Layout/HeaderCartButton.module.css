@@ -30,6 +30,10 @@
   background-color: rgb(8, 139, 67);
 }
 
+.bump {
+  animation: bump 300ms ease-out;
+}
+
 @keyframes bump {
   0% {
     transform: scale(1);
