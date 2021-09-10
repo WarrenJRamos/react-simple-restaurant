@@ -10,7 +10,7 @@
 
 .modal-overlay {
   position: fixed;
-  top: 40vh;
+  top: 20%;
   left: 5%;
   width: 90%;
   background: rgb(250, 128, 114, 1);
