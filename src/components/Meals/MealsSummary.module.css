@@ -1,6 +1,7 @@
 .meals-summary {
   position: relative;
   z-index: 5;
+  margin-top: 2rem;
 }
 
 .meals-summary h2 {

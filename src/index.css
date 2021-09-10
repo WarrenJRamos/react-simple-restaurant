@@ -6,4 +6,5 @@
 
 html, body {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  background: url('./assets/lore-schodts-donuts-unsplash.jpg') no-repeat 0 0 / cover;
 }

@@ -2,6 +2,14 @@
   width: 100%;
   font: inherit;
   border-radius: 25px;
-  padding: 0.3rem;
-  background-color:
+  border-style: none;
+  padding: 0.5rem 0.7rem 0.5rem 0.7rem;
+  background-color: rgba(0, 192, 0, 0.5);
+  color: white;
+  transition: transform 0.3s ease-out, background-color 0.3s ease-out;
+}
+
+.button:hover, .button:active {
+  transform: scale(1.1);
+  background-color: rgba(0, 192, 0, 0.7);
 }
