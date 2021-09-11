@@ -9,25 +9,49 @@ const defaultCartState = {
 
 const cartReducer = (state, action) => {
   if (action.type === 'ADD') {
-    const updatedTotalAmount =
-      state.totalAmount + action.item.price * action.item.amount;
-
-    const existingItemIndex = state.items.findIndex(item => {
-      return item.id === action.item.id;
-    });
-
+    let updatedTotalAmount;
+    let existingItemIndex;
     let updatedItems;
-    const existingItem = state.items[existingItemIndex];
+    let existingItem;
 
-    if (existingItem) {
+    if (action.option && action.option === 'ONE') {
+      // Add one item; precondition: must already be in array
+      updatedTotalAmount =
+        state.totalAmount + action.item.price;
+
+      existingItemIndex = state.items.findIndex(item => {
+        return item.id === action.item.id;
+      });
+
+      existingItem = state.items[existingItemIndex];
+
       const updatedItem = {
         ...existingItem,
-        amount: existingItem.amount + action.item.amount
+        amount: existingItem.amount + 1
       };
       updatedItems = [...state.items];
       updatedItems[existingItemIndex] = updatedItem;
     } else {
-      updatedItems = [...state.items, action.item];
+      // Add more than one item
+      updatedTotalAmount =
+        state.totalAmount + action.item.price * action.item.amount;
+
+      existingItemIndex = state.items.findIndex(item => {
+        return item.id === action.item.id;
+      });
+
+      existingItem = state.items[existingItemIndex];
+
+      if (existingItem) {
+        const updatedItem = {
+          ...existingItem,
+          amount: existingItem.amount + action.item.amount
+        };
+        updatedItems = [...state.items];
+        updatedItems[existingItemIndex] = updatedItem;
+      } else {
+        updatedItems = [...state.items, action.item];
+      }
     }
 
     return {
@@ -77,8 +101,8 @@ const CartContextProvider = (props) => {
     defaultCartState
   );
 
-  const addItemToCartHandler = (item) => {
-    dispatchCartAction({ type: 'ADD', item: item });
+  const addItemToCartHandler = (item, option) => {
+    dispatchCartAction({ type: 'ADD', item: item, option: option });
   };
 
   const removeItemFromCartHandler = (id) => {
