@@ -9,3 +9,12 @@
   padding: 1.5rem 1rem 1.5rem 1rem;
   margin-bottom: 1rem;
 }
+
+.loading-meals {
+  text-align: center;
+}
+
+.http-error {
+  text-align: center;
+  color: red;
+}
