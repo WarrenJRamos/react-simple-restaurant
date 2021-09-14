@@ -1,7 +1,7 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef } from "react";
 
-import classes from './MealItemForm.module.css';
-import Input from '../../UI/Input';
+import classes from "./MealItemForm.module.css";
+import Input from "../../UI/Input";
 
 const MealItemForm = (props) => {
   const [isValidAmount, setIsValidAmount] = useState(true);
@@ -13,7 +13,8 @@ const MealItemForm = (props) => {
     const enteredAmount = amountInputRef.current.value;
     const enteredAmountNumber = +enteredAmount;
 
-    if (enteredAmount.trim() === 0 ||
+    if (
+      enteredAmount.trim() === 0 ||
       enteredAmountNumber < 1 ||
       enteredAmountNumber > 5
     ) {
@@ -28,14 +29,14 @@ const MealItemForm = (props) => {
     <form onSubmit={submitHandler}>
       <Input
         ref={amountInputRef}
-        label='Amount'
+        label="Amount"
         input={{
-          id: 'amount_' + props.id,
-          type: 'number',
-          min: '1',
-          max: '5',
-          step: '1',
-          defaultValue: '1'
+          id: "amount_" + props.id,
+          type: "number",
+          min: "1",
+          max: "5",
+          step: "1",
+          defaultValue: "1",
         }}
       />
       <button className={classes.button}>Add to order</button>

@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-import classes from './Input.module.css';
+import classes from "./Input.module.css";
 
 // forwardRef allows us to forward the input element reference from this child component to
 // its parent component

@@ -1,11 +1,11 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState } from "react";
 
-import CartContext from '../../store/cart-context';
+import CartContext from "../../store/cart-context";
 
-import Checkout from './Checkout';
-import Modal from '../UI/Modal';
-import CartItem from './CartItem';
-import classes from './Cart.module.css';
+import Checkout from "./Checkout";
+import Modal from "../UI/Modal";
+import CartItem from "./CartItem";
+import classes from "./Cart.module.css";
 
 const Cart = (props) => {
   const cartContext = useContext(CartContext);
@@ -18,13 +18,16 @@ const Cart = (props) => {
 
   const submitOrderHandler = async (data) => {
     setIsSubmitting(true);
-    await fetch('https://food-app-react-1d27f-default-rtdb.firebaseio.com/orders.json', {
-      method: 'POST',
-      body: JSON.stringify({
-        user: data,
-        orderedItems: cartContext.items
-      })
-    });
+    await fetch(
+      "https://food-app-react-1d27f-default-rtdb.firebaseio.com/orders.json",
+      {
+        method: "POST",
+        body: JSON.stringify({
+          user: data,
+          orderedItems: cartContext.items,
+        }),
+      }
+    );
     setIsSubmitting(false);
     setDidSubmit(true);
     cartContext.clearCart();
@@ -43,7 +46,7 @@ const Cart = (props) => {
   };
 
   const cartItems = (
-    <ul className={classes['cart-items']}>
+    <ul className={classes["cart-items"]}>
       {cartContext.items.map((item) => (
         <CartItem
           key={item.id}
@@ -51,7 +54,7 @@ const Cart = (props) => {
           amount={item.amount}
           price={item.price}
           onRemove={cartItemRemoveHandler.bind(null, item.id)}
-          onAdd={cartItemAddHandler.bind(null, item, 'ONE')}
+          onAdd={cartItemAddHandler.bind(null, item, "ONE")}
         />
       ))}
     </ul>
@@ -59,8 +62,14 @@ const Cart = (props) => {
 
   const modalActions = (
     <div class={classes.actions}>
-      <button className={classes['button--alt']} onClick={props.onCloseCart}>Close</button>
-      {hasItems && <button className={classes.button} onClick={orderHandler}>Order</button>}
+      <button className={classes["button--alt"]} onClick={props.onCloseCart}>
+        Close
+      </button>
+      {hasItems && (
+        <button className={classes.button} onClick={orderHandler}>
+          Order
+        </button>
+      )}
     </div>
   );
 
@@ -71,7 +80,9 @@ const Cart = (props) => {
         <span>Total Amount</span>
         <span>{cartTotal}</span>
       </div>
-      {isCheckingOut && <Checkout onClick={props.onCloseCart} onConfirm={submitOrderHandler} />}
+      {isCheckingOut && (
+        <Checkout onClick={props.onCloseCart} onConfirm={submitOrderHandler} />
+      )}
       {!isCheckingOut && modalActions}
     </React.Fragment>
   );
@@ -83,7 +94,12 @@ const Cart = (props) => {
       <div>
         <p>Successfully sent the order!</p>
         <div class={classes.actions}>
-          <button className={classes['button--alt']} onClick={props.onCloseCart}>Close</button>
+          <button
+            className={classes["button--alt"]}
+            onClick={props.onCloseCart}
+          >
+            Close
+          </button>
         </div>
       </div>
     </React.Fragment>

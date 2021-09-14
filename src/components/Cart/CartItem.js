@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-import classes from './CartItem.module.css';
+import classes from "./CartItem.module.css";
 
 const CartItem = (props) => {
   console.log(props.name);
@@ -8,7 +8,7 @@ const CartItem = (props) => {
   const price = `$${props.price.toFixed(2)}`;
 
   return (
-    <li className={classes['cart-item']}>
+    <li className={classes["cart-item"]}>
       <div>
         <h2>{props.name}</h2>
         <div className={classes.summary}>
@@ -17,8 +17,12 @@ const CartItem = (props) => {
         </div>
       </div>
       <div className={classes.actions}>
-        <button onClick={props.onRemove} className={classes.subtract}>−</button>
-        <button onClick={props.onAdd} className={classes.add}>+</button>
+        <button onClick={props.onRemove} className={classes.subtract}>
+          −
+        </button>
+        <button onClick={props.onAdd} className={classes.add}>
+          +
+        </button>
       </div>
     </li>
   );
