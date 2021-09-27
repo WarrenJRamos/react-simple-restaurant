@@ -1,6 +1,9 @@
 .form {
   overflow: auto;
-  height: 19rem;
+  max-height: 15rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1rem;
 }
 
 .control {
